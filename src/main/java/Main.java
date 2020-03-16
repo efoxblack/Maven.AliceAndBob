@@ -5,6 +5,7 @@ import java.util.Scanner;
  */
 public class Main {
 
+    static int counter = 1;
     public static void main(String[] args ){
         Scanner userInput = new Scanner(System.in);
         boolean runAgain = false;
@@ -16,31 +17,38 @@ public class Main {
             System.out.println("Enter a name, try to find two specific names.");
             String name = userInput.nextLine();
 
-            switch (name) {
-                case "Alice":
-                    System.out.println("Welcome Alice");
-                    exitLoop = true;
-                    break;
-                case "Bob":
-                    System.out.println("Welcome Bob");
-                    exitLoop = true;
-                    break;
-                default:
-                    System.out.println("Try a different name");
-                    runAgain = true;
-                    break;
+            if (name.equalsIgnoreCase("Alice")) {
+                System.out.println("Welcome " + name);
+                exitLoop = true;
+            } else if (name.equalsIgnoreCase("Bob")) {
+                System.out.println("Welcome " + name);
+                exitLoop = true;
+            } else {
+                System.out.println("This is your #" + counter + " try.");
+                counter++;
+                runAgain = true;
             }
+
             if (exitLoop) {
                 break;
             }
         } while (runAgain);
-//        if (name.equals("Alice")) {
-//            System.out.println("Welcome " + name);
-//        } else if (name.equals("Bob")) {
-//            System.out.println("Welcome " + name);
-//        } else {
-//            System.out.println("Try a different name.");
-//        }
+
+//        switch (name) {
+//                case name.equalsIgnoreCase("Alice"):
+//                    System.out.println("Welcome Alice");
+//                    exitLoop = true;
+//                    break;
+//                case name.equalsIgnoreCase("Bob"):
+//                    System.out.println("Welcome Bob");
+//                    exitLoop = true;
+//                    break;
+//                default:
+//                    System.out.println("This is your #" + counter + " try.");
+//                    counter++;
+//                    runAgain = true;
+//                    break;
+//            }
 
     }
 }
